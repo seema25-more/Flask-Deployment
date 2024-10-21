@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API - Heart Disease Prediction</title>
+  <style>
+    body {
+      background-color: #add8e6; /* Fallback plain light color */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 25px;  /* Reduced padding */
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+      width: 350px; /* Reduced form width */
+      color: white;
+    }
+
+    h1 {
+      font-size: 24px; 
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.8);
+      color: #333;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4a77d4;
+      border: none;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3762bc;
+    }
+
+    .login form {
+      display: flex;
+      flex-direction: column;
+    }
+
+  </style>
+</head>
+<body>
+
+ <div class="login">
+     <h1>Heart Disease Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="Age" placeholder="Age" required="required" />
+        <input type="text" name="Sex" placeholder="Sex" required="required" />
+        <input type="text" name="Op" placeholder="Op" required="required" />
+        <input type="text" name="trestbps" placeholder="trestbps" required="required" />
+        <input type="text" name="chol" placeholder="chol" required="required" />
+        <input type="text" name="fbs" placeholder="fbs" required="required" />
+        <input type="text" name="restcg" placeholder="restcg" required="required" />
+        <input type="text" name="thalach" placeholder="thalach" required="required" />
+        <input type="text" name="exang" placeholder="exang" required="required" />
+        <input type="text" name="oldpeak" placeholder="oldpeak" required="required" />
+        <input type="text" name="slope" placeholder="slope" required="required" />
+        <input type="text" name="ca" placeholder="ca" required="required" />
+        <input type="text" name="thal" placeholder="thal" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
